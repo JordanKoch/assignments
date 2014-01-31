@@ -31,3 +31,68 @@ When you're done editing this file, save it, commit it, and push it to your "ass
 
 ## Now get to it!
 
+'use strict';
+
+var module = angular.module('app', [
+    // Variable: module
+  'ui.bootstrap',
+  'ui.router',
+  'xe.datasources',
+  'xe.directives',
+  'xe.filters',
+  'xe.log',
+  'xe.router',
+  'xe.session',
+  'xe.ui.code',
+  'xe.ui.code.functionView',
+  'xe.ui.code.moduleInfo',
+  'xe.ui.code.threadInfo',
+  'xe.ui.console',
+  'xe.ui.navbar'
+]);
+    // Array
+
+
+module.controller('AppController', function($scope, app) {
+    //Function: controller
+  this.app = app;
+    //Function: app
+});
+
+
+module.service('app', function(
+    $rootScope, $q, $state, log, Session) {
+  var App = function() {
+    //Variable: App
+    this.loading = false;
+        // Boolean: false
+    this.session = null;
+        // Value: null
+  };
+
+  App.prototype.setSession = function(session) {
+    this.close();
+        //Function: close
+
+    this.session = session;
+        Variable: session
+    $rootScope.$emit('refresh');
+        //Function
+  };
+
+  App.prototype.close = function() {
+    this.loading = false;
+        //Boolean: false
+    if (this.session) {
+        // If statement
+      this.session.dispose();
+      this.session = null;
+        //Value: null
+    }
+  };
+
+  App.prototype.open = function(sessionId) {
+    var d = $q.defer();
+        //Variable: d
+
+    // Ignore if already open.
