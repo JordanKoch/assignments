@@ -33,7 +33,8 @@ When you're done editing this file, save it, commit it, and push it to your "ass
 
 'use strict';
 
-var module = angular.module('app', [
+Lines 37-54
+* var module = angular.module('app', [
     // Variable: module
   'ui.bootstrap',
   'ui.router',
@@ -49,18 +50,18 @@ var module = angular.module('app', [
   'xe.ui.code.threadInfo',
   'xe.ui.console',
   'xe.ui.navbar'
-]);
+ ]);
     // Array
 
-
-module.controller('AppController', function($scope, app) {
+Lines 57-61
+* module.controller('AppController', function($scope, app) {
     //Function: controller
   this.app = app;
     //Function: app
-});
+ });
 
-
-module.service('app', function(
+Lines 64-72
+* module.service('app', function(
     $rootScope, $q, $state, log, Session) {
   var App = function() {
     //Variable: App
@@ -70,17 +71,19 @@ module.service('app', function(
         // Value: null
   };
 
-  App.prototype.setSession = function(session) {
+Lines 75-83
+*  App.prototype.setSession = function(session) {
     this.close();
         //Function: close
 
-    this.session = session;
+*    this.session = session;
         Variable: session
     $rootScope.$emit('refresh');
         //Function
   };
 
-  App.prototype.close = function() {
+Lines 86-95
+*  App.prototype.close = function() {
     this.loading = false;
         //Boolean: false
     if (this.session) {
@@ -91,7 +94,8 @@ module.service('app', function(
     }
   };
 
-  App.prototype.open = function(sessionId) {
+Lines 98-100
+*  App.prototype.open = function(sessionId) {
     var d = $q.defer();
         //Variable: d
 
