@@ -101,3 +101,4 @@ module.service('DataSource', function($q) {
  ```
 * The code, as it is, is pretty legible for even a beginner like me.
 * The code looks very organized and neat.
+* Code could use comments to expain the functions used.
