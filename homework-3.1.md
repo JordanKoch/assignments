@@ -1,3 +1,4 @@
+```javascript
 fs.readdir(source, function(err, files) {
   if (err) {
     console.log('Error finding files: ' + err)
@@ -36,4 +37,4 @@ form.onsubmit = function(submitEvent) {
     statusMessage.value = body
   })
 }
-
+```
