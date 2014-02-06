@@ -2,13 +2,15 @@
 fs.readdir(source, function(err, files) {
   if (err) {
     console.log('Error finding files: ' + err)
-  } else {
+  }
+  else {
     files.forEach(function(filename, fileIndex) {
       console.log(filename)
       gm(source + filename).size(function(err, values) {
         if (err) {
           console.log('Error identifying file size: ' + err)
-        } else {
+        }
+        else {
           console.log(filename + ' : ' + values)
           aspect = (values.width / values.height)
           widths.forEach(function(width, widthIndex) {
@@ -27,14 +29,14 @@ fs.readdir(source, function(err, files) {
 var form = document.querySelector('form')
 form.onsubmit = function(submitEvent) {
   var name = document.querySelector('input').value
-  request({
-    uri: "http://example.com/upload",
-    body: name,
-    method: "POST"
+    request({
+        uri: "http://example.com/upload",
+        body: name,
+     method: "POST"
   }, function(err, response, body) {
-    var statusMessage = document.querySelector('.status')
-    if (err) return statusMessage.value = err
-    statusMessage.value = body
+         var statusMessage = document.querySelector('.status')
+            if (err) return statusMessage.value = err
+             statusMessage.value = body
   })
 }
 ```
