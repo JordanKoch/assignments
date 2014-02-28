@@ -1,4 +1,4 @@
-```
+```javascript
 (function() {
   var extend,
     __slice = [].slice,
