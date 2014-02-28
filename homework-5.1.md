@@ -1,38 +1,16 @@
-`WOW/dist/wow.js:1-158`
-```javascript
-(function() {
-  var extend,
-    __slice = [].slice,
-    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  extend = function() {
-    var args, key, object, replacement, result, value, _i, _len, _ref;
-    object = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-    result = object || {};
-    for (_i = 0, _len = args.length; _i < _len; _i++) {
-      replacement = args[_i];
-      _ref = replacement || {};
-      for (key in _ref) {
-        value = _ref[key];
+`WOW/dist/wow.js:15-19`
+```javascript
         //If type of key is an object, then ...I don't know
         if (typeof result[key] === "object") {
           result[key] = extend(result[key], value);
         } else {
           result[key] || (result[key] = value);
         }
-      }
-    }
-    return result;
-  };
+```
 
-  this.WOW = (function() {
-    WOW.prototype.defaults = {
-      boxClass: 'wow',
-      animateClass: 'animated',
-      offset: 0
-    };
-
-    function WOW(options) {
+`WOW/dist/wow.js:33-41`
+```javascript
       //If options equals null, options equal empty dict?
       if (options == null) {
         options = {};
@@ -43,9 +21,10 @@
       this.config = extend(options, this.defaults);
       this.scrolled = true;
     }
+```
 
-    WOW.prototype.init = function() {
-      var _ref;
+`WOW/dist/wow.js:45-50`
+```javascript
       //If _ref is interactive and complete, return this.start function; Else return return document.addEventListener function.
       if ((_ref = document.readyState) === "interactive" || _ref === "complete") {
         return this.start();
@@ -53,11 +32,9 @@
         return document.addEventListener('DOMContentLoaded', this.start);
       }
     };
-
-    WOW.prototype.start = function() {
-      var box, _i, _len, _ref;
-      this.element = window.document.documentElement;
-      this.boxes = this.element.getElementsByClassName(this.config.boxClass);
+```
+`WOW/dist/wow.js:56-66`
+```javascript
       //If this blefhgj i don't know
       if (this.boxes.length) {
         _ref = this.boxes;
@@ -70,32 +47,18 @@
         return this.interval = setInterval(this.scrollCallback, 50);
       }
     };
+```
 
-    WOW.prototype.stop = function() {
-      window.removeEventListener('scroll', this.scrollHandler, false);
-      window.removeEventListener('resize', this.scrollHandler, false);
+`WOW/dist/wow.js:71-74`
+```javascript
       //If this.interval does not equal null, return clearInterval(this.interval)
       if (this.interval != null) {
         return clearInterval(this.interval);
       }
     };
-
-    WOW.prototype.show = function(box) {
-      this.applyStyle(box);
-      return box.className = "" + box.className + " " + this.config.animateClass;
-    };
-
-    WOW.prototype.applyStyle = function(box, hidden) {
-      var delay, duration, iteration;
-      duration = box.getAttribute('data-wow-duration');
-      delay = box.getAttribute('data-wow-delay');
-      iteration = box.getAttribute('data-wow-iteration');
-      return box.setAttribute('style', this.customStyle(hidden, duration, delay, iteration));
-    };
-
-    WOW.prototype.customStyle = function(hidden, duration, delay, iteration) {
-      var style;
-      style = hidden ? "visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;" : "visibility: visible;";
+```
+`WOW/dist/wow.js:92-102`
+```
       //Guard statement for duration of animation.
       if (duration) {
         style += "-webkit-animation-duration: " + duration + "; -moz-animation-duration: " + duration + "; animation-duration: " + duration + ";";
@@ -110,13 +73,9 @@
       }
       return style;
     };
-
-    WOW.prototype.scrollHandler = function() {
-      return this.scrolled = true;
-    };
-
-    WOW.prototype.scrollCallback = function() {
-      var box;
+```
+`WOW/dist/wow.js:110-133`
+```javascript
       //If scrolled, play animation?
       if (this.scrolled) {
         this.scrolled = false;
@@ -142,29 +101,4 @@
         }
       }
     };
-
-    WOW.prototype.offsetTop = function(element) {
-      var top;
-      top = element.offsetTop;
-      while (element = element.offsetParent) {
-        top += element.offsetTop;
-      }
-      return top;
-    };
-
-    WOW.prototype.isVisible = function(box) {
-      var bottom, offset, top, viewBottom, viewTop;
-      offset = box.getAttribute('data-wow-offset') || this.config.offset;
-      viewTop = window.pageYOffset;
-      viewBottom = viewTop + this.element.clientHeight - offset;
-      top = this.offsetTop(box);
-      bottom = top + box.clientHeight;
-      return top <= viewBottom && bottom >= viewTop;
-    };
-
-    return WOW;
-
-  })();
-
-}).call(this);
 ```
