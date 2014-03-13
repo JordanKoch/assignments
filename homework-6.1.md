@@ -71,3 +71,17 @@ while (counter < 10) {
 //Once that loop is completed, print result.
 show(result);
 ```
+
+`http://eloquentjavascript.net/chapter2.html/  Excercise 2.3`
+```javascript
+//This program basically prints half a triangle.
+//var line is an empty string and var counter is 0.
+var line = "";
+var counter = 0;
+//While counter is less than 10, add a '#' to line, then print and add 1 to counter.
+while (counter < 10) {
+  line = line + "#";
+  print(line);
+  counter = counter + 1;
+}
+```
