@@ -56,3 +56,18 @@ for (int n = 0;; n++)
         }
         i++;
 ```
+
+`http://eloquentjavascript.net/chapter2.html/  Excercise 2.2`
+```javascript
+//This program does the math problem: 2^10
+//var result is.....the result; var counter is the exponent.
+var result = 1;
+var counter = 0;
+//while the counter remains less than 10; multiply result by two and counter by 1.
+while (counter < 10) {
+  result = result * 2;
+  counter = counter + 1;
+}
+//Once that loop is completed, print result.
+show(result);
+```
