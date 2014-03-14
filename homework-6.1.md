@@ -85,3 +85,17 @@ while (counter < 10) {
   counter = counter + 1;
 }
 ```
+`http://eloquentjavascript.net/chapter2.html/  Excercise 2.4`
+```javascript
+//This is the same problem as Ex.2.2, except using for instead of while
+var result = 1;
+for (var counter = 0; counter < 10; counter = counter + 1)
+  result = result * 2;
+show(result);
+
+//This is the same problem as Ex.2.3, except using for instead of while
+var line = "";
+for (var counter = 0; counter < 10; counter = counter + 1) {
+  line = line + "#";
+  print(line);
+}
