@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    hallway = require('./2014-04-11-code.js');
+    hallway = require('./homework-10.1-code.js');
 
 /**
  * Given a hallway that contains 100 doors and 100 trips down the hallway...
@@ -34,3 +34,7 @@ assert.equal(hallway.doors [0], hallway.OPENED);
 
 /* // Tests for more doors...
 // */
+assert(hallway);
+assert(hallway.doors);
+assert.equal(hallway.CLOSED, 1);
+assert.equal(hallway.OPENED, 0);
