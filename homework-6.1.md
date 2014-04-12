@@ -10,7 +10,7 @@ if (localAccount1.type.equals ("com.whatsapp"))
     break label217;
     m = arrayOfAccount.length;
 }
-// For interger n equals 0; notepad++??
+// For interger n equals 0; add one to n?
 for (int n = 0;; n++)
 {
     //If n is greater or equal to m(arrayOfAccount.length)
